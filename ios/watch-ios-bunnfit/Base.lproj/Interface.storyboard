@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="19455" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0cV-vZ-llG">
+    <device id="watch38"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="19454"/>
+    </dependencies>
+    <scenes>
+        <!--InterfaceController-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="InterfaceController" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="watch_ios_bunnfit_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="BBU-FD-CGh">
+                            <items>
+                                <group width="1" alignment="left" id="sMU-2R-USY">
+                                    <items>
+                                        <dateLabel alignment="left" textAlignment="justified" format="yy/MM/dd" id="rBK-U1-nkF"/>
+                                        <timer alignment="right" textAlignment="center" id="n5U-R6-loH"/>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="center" verticalAlignment="center" id="6yf-z6-Ufz">
+                                    <items>
+                                        <group width="0.5" alignment="left" id="jim-pA-WNn">
+                                            <items>
+                                                <button width="1" height="26" alignment="left" title="운동 시작" id="Xd1-u8-dKh">
+                                                    <color key="backgroundColor" red="0.12416734710000001" green="0.62280742690000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="font" type="system" pointSize="13"/>
+                                                    <connections>
+                                                        <action selector="startButtonAction" destination="AgC-eL-Hgc" id="q3N-C7-vq7"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
+                                        <group alignment="right" id="Sds-TS-HGK">
+                                            <items>
+                                                <button width="1" height="26" alignment="right" title="운동 완료" id="h4I-bg-qx3">
+                                                    <color key="backgroundColor" red="0.12416734710000001" green="0.62280742690000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="font" type="system" pointSize="13"/>
+                                                    <connections>
+                                                        <action selector="endButtonAction" destination="AgC-eL-Hgc" id="Bjl-0S-epm"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                                <table alignment="center" verticalAlignment="bottom" id="B38-Ju-fDt" customClass="Row">
+                                    <items>
+                                        <tableRow identifier="RowController" id="JXX-0n-PaP" customClass="RowController" customModule="watch_ios_bunnfit_WatchKit_Extension">
+                                            <group key="rootItem" width="1" height="38" alignment="left" layout="vertical" id="VU8-KO-93D">
+                                                <items>
+                                                    <label alignment="left" text="Label" textAlignment="center" id="C4S-Gy-aqK">
+                                                        <fontDescription key="font" type="system" pointSize="14"/>
+                                                    </label>
+                                                    <slider width="1" height="0.5" alignment="left" maximum="3" steps="3" id="8DF-FI-OZa"/>
+                                                </items>
+                                            </group>
+                                            <connections>
+                                                <outlet property="mySlider" destination="8DF-FI-OZa" id="l31-Us-iQy"/>
+                                                <outlet property="titleLabel" destination="C4S-Gy-aqK" id="xVY-8c-t9l"/>
+                                            </connections>
+                                        </tableRow>
+                                    </items>
+                                </table>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="endButton" destination="h4I-bg-qx3" id="2gq-dU-Qgk"/>
+                        <outlet property="myDate" destination="rBK-U1-nkF" id="3cS-C1-UKL"/>
+                        <outlet property="myTable" destination="B38-Ju-fDt" id="ecI-00-UOi"/>
+                        <outlet property="myTimer" destination="n5U-R6-loH" id="pqW-Js-Nxp"/>
+                        <outlet property="startButton" destination="Xd1-u8-dKh" id="yYf-55-ygG"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="215" y="48"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="139" y="959"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="watch_ios_bunnfit" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="387" y="959"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="Niz-AI-uX2">
+            <objects>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="watch_ios_bunnfit" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="637" y="959"/>
+        </scene>
+        <!--RestTimerInterfaceController-->
+        <scene sceneID="lrD-uc-AYV">
+            <objects>
+                <controller identifier="RestTimerInterfaceController" id="OP9-lb-SyN">
+                    <items>
+                        <group width="1" height="1" alignment="left" layout="vertical" id="iIC-78-jcf">
+                            <items>
+                                <group height="30" alignment="center" spacing="4" id="ZfZ-g9-bfe">
+                                    <items>
+                                        <label height="40" alignment="center" verticalAlignment="center" text="휴식" textAlignment="center" id="MQg-Rd-6oB">
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group height="30" alignment="center" verticalAlignment="center" id="vcO-IW-0gC">
+                                    <items>
+                                        <timer width="136" alignment="center" verticalAlignment="center" textAlignment="center" id="bfk-q0-sDo">
+                                            <fontDescription key="font" type="system" pointSize="18"/>
+                                        </timer>
+                                    </items>
+                                </group>
+                                <group width="120" alignment="center" verticalAlignment="bottom" id="ba8-l3-jau">
+                                    <items>
+                                        <button width="1" alignment="center" verticalAlignment="bottom" title="Skip" id="Fbf-E6-NB0">
+                                            <color key="backgroundColor" red="0.12416734710000001" green="0.62280742690000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </button>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="732" y="360"/>
+        </scene>
+        <!--DetailInterfaceController-->
+        <scene sceneID="dFa-mq-RKe">
+            <objects>
+                <controller identifier="DetailInterfaceController" id="dyh-d7-KHn" customClass="DetailInterfaceController" customModule="watch_ios_bunnfit_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="6o0-Kf-mwU">
+                            <items>
+                                <label alignment="left" text="가슴|벤치프레스" textAlignment="center" id="zQR-mv-ueF">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                </label>
+                                <label alignment="left" text="3/7세트" textAlignment="center" id="8m2-GY-bKE">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                </label>
+                                <group width="136" alignment="center" verticalAlignment="center" id="1SL-M1-Wte">
+                                    <items>
+                                        <label width="68" alignment="center" verticalAlignment="center" text="kg" textAlignment="center" id="CZi-Dh-RQM"/>
+                                        <label width="68" alignment="center" verticalAlignment="center" text="reps" textAlignment="center" id="pR4-54-0QP"/>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="center" verticalAlignment="center" layout="overlap" id="J3F-0l-Mnl">
+                                    <items>
+                                        <group width="1" height="30" alignment="center" id="taV-LT-Tjm">
+                                            <items>
+                                                <label width="68" alignment="center" verticalAlignment="center" text="60" textAlignment="center" id="7hF-gY-xRf">
+                                                    <fontDescription key="font" type="system" pointSize="30"/>
+                                                </label>
+                                                <label width="68" alignment="center" verticalAlignment="center" text="10" textAlignment="center" id="E5P-TM-ghj">
+                                                    <fontDescription key="font" type="system" pointSize="30"/>
+                                                </label>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                                <group width="120" alignment="center" verticalAlignment="center" layout="vertical" radius="0.0" id="bgd-gz-IUW">
+                                    <items>
+                                        <label alignment="center" text="Next 60kg x 10회" textAlignment="center" id="G88-35-rKd">
+                                            <fontDescription key="font" type="boldSystem" pointSize="11"/>
+                                        </label>
+                                        <button width="1" alignment="center" verticalAlignment="bottom" title="기록" id="rFC-Ce-qAy">
+                                            <color key="backgroundColor" red="0.12416734710000001" green="0.62280742690000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="font" type="boldSystem" pointSize="17"/>
+                                            <connections>
+                                                <action selector="GoToRestTimer" destination="dyh-d7-KHn" id="PFs-Cx-hp8"/>
+                                            </connections>
+                                        </button>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="detailLabel" destination="G88-35-rKd" id="PcJ-nk-Vcj"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="467" y="363"/>
+        </scene>
+        <!--StartInterfaceController-->
+        <scene sceneID="K3l-zM-3AN">
+            <objects>
+                <controller identifier="StartInterfaceController" id="0cV-vZ-llG" customClass="StartInterfaceController" customModule="watch_ios_bunnfit_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="1" alignment="left" layout="vertical" id="l4L-rt-3cX">
+                            <items>
+                                <label height="0.10000000000000001" alignment="left" verticalAlignment="bottom" text="과거의 나를 뛰어넘을 시간" id="Nhg-A5-I9w">
+                                    <fontDescription key="font" type="italicSystem" pointSize="16"/>
+                                </label>
+                                <label height="0.10000000000000001" heightAdjustment="1" alignment="left" verticalAlignment="bottom" text="먼저 휴대폰에서 운동을 계획하세요" id="ujB-JG-GnI">
+                                    <fontDescription key="font" type="italicSystem" pointSize="13"/>
+                                </label>
+                                <button width="0.59999999999999998" height="0.20000000000000001" alignment="right" verticalAlignment="bottom" title="Connect" id="HBb-Bo-ipU">
+                                    <color key="backgroundColor" red="0.12416734710000001" green="0.62280742690000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="system" pointSize="14"/>
+                                    <connections>
+                                        <action selector="ConnectButtonTapped" destination="0cV-vZ-llG" id="1SB-mE-JoJ"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="connectButton" destination="HBb-Bo-ipU" id="cH5-qa-F2S"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-55" y="48"/>
+        </scene>
+        <!--EndInterfaceController-->
+        <scene sceneID="sBV-V6-os4">
+            <objects>
+                <controller identifier="EndInterfaceController" id="lIm-3A-wKe" customClass="EndInterfaceController" customModule="watch_ios_bunnfit_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="1" alignment="left" layout="vertical" id="XJw-4D-Q0y">
+                            <items>
+                                <label alignment="center" text="Woo hoo!" id="auE-QA-w42"/>
+                                <label alignment="center" text="Well done" id="Nm8-vh-Sqb"/>
+                                <group width="1" alignment="left" layout="vertical" id="Eme-bw-F4x">
+                                    <items>
+                                        <group width="0.80000000000000004" height="0.14999999999999999" heightAdjustment="1" alignment="center" radius="3" id="ExN-k4-iYN">
+                                            <items>
+                                                <label width="0.59999999999999998" alignment="center" text="운동시간" id="pH9-8j-jD2"/>
+                                                <label alignment="center" text="Label" id="1ih-tK-Bl5"/>
+                                            </items>
+                                            <color key="backgroundColor" red="0.12416734710000001" green="0.62280742690000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </group>
+                                        <group width="0.80000000000000004" height="0.14999999999999999" heightAdjustment="1" alignment="center" radius="3" id="bSz-KM-lbo">
+                                            <items>
+                                                <label width="0.59999999999999998" alignment="center" text="전체볼륨" id="nJW-4U-zeJ"/>
+                                                <label alignment="center" text="Label" id="mf8-FW-Ts3"/>
+                                            </items>
+                                            <color key="backgroundColor" red="0.12416734710000001" green="0.62280742690000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </group>
+                                        <group width="0.80000000000000004" height="0.14999999999999999" heightAdjustment="1" alignment="center" radius="3" id="osI-Os-Pf3">
+                                            <items>
+                                                <label width="0.59999999999999998" alignment="center" text="운동개수" id="vVT-Q1-bbD"/>
+                                                <label alignment="center" text="Label" id="OKa-Ht-JFq"/>
+                                            </items>
+                                            <color key="backgroundColor" red="0.12416734710000001" green="0.62280742690000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </group>
+                                    </items>
+                                </group>
+                                <group width="1" height="0.20000000000000001" alignment="left" id="fEN-D9-1Wx">
+                                    <items>
+                                        <button width="0.5" height="1" alignment="center" title="완료" id="rxJ-gY-C7n">
+                                            <color key="backgroundColor" red="0.12416734710000001" green="0.62280742690000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="endButtonTapped" destination="lIm-3A-wKe" id="jj0-EF-jQo"/>
+                                            </connections>
+                                        </button>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="990" y="48"/>
+        </scene>
+    </scenes>
+</document>
